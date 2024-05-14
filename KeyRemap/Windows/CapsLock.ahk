@@ -13,3 +13,24 @@ SetCapsLockState("AlwaysOff")
 }
 
 ~CapsLock::F13
+
+
+global QQQ := 0
+
+~LAlt & CapsLock::{
+    global QQQ
+    switch [QQQ] {
+        case 0 :
+            global QQQ := 1
+            SendInput("{Media_Play_Pause}")
+            SendInput("{LAlt Down}{Tab Down}{Tab Up}{LAlt Up}")
+        default:
+            SendInput("{LAlt Down}{Tab Down}{Tab Up}{LAlt Up}")
+            Sleep(500)
+            SendInput("{Media_Play_Pause}")
+            global QQQ := 0
+
+    }
+        
+    
+}

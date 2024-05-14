@@ -52,9 +52,9 @@ global quick_oneNote_ID := unset
 
 #HotIf
 
-~LWin up::{
 
-    global generalShortcuts .= "Lwin => F13" 
+global generalShortcuts .= "`nLwin => F13" 
+~LWin up::{
 
     SendInput("{F13 Up}")
     ; SendInput("{" A_MenuMaskKey "}")
@@ -68,9 +68,9 @@ global quick_oneNote_ID := unset
 }
 
 
+global generalShortcuts .= "`nLWin + ' => music player "
 ~LWin & ~'::{ 
     
-    global generalShortcuts .= "LWin + ' => music player "
 
     DetectHiddenWindows(0) ;must 0 for not trigger heddin winodw like splash
     runMusicPlayer("MusicBee.exe", musicPlayerPath , "ahk_class WindowsForms10.Window.8.app.0.2bf8098_r8_ad1" , "MusicBee")
@@ -150,8 +150,8 @@ global quick_oneNote_ID := unset
 
 
 
+global generalShortcuts .= "`nLWin + F1 => `"To Do`" App"
 ~LWin & F1::{
-    global generalShortcuts .= "LWin + F1 => `"To Do`" App"
 
     DetectHiddenWindows(0) ;must 0 to no activate hedden* window
 
@@ -175,14 +175,14 @@ global quick_oneNote_ID := unset
 
 
 
+global generalShortcuts .= "`nLWin + Esc => quick note form `"one note`""
 ~LWin & Esc::{
-    global generalShortcuts .= "LWin + Esc => quick note form `"one note`""
     oneNoteManger_Quick____AHK__func()
 }
 
 
+global generalShortcuts .= "`napp shortcut2 (calculator) => fast keyboard trainer"
 Launch_App2::{
-    global generalShortcuts .= "app shortcut2 (calculator) => fast keyboard trainer"
     AppMangerActivateFunc( fastTypeKeyboardApp__Name , fastTypeKeyboardApp__Path )
 }
 
@@ -191,17 +191,24 @@ Launch_App2::{
 
 
 
+global generalShortcuts .= "`nLWin + N => onenote"
 ~LWin & N::{
-    global generalShortcuts .= "LWin + N => onenote"
     oneNoteManger_AHK__func()
 }
 
 
 
+#HotIf GetKeyState("Ctrl", "P")
+LWin & F1:: {
+    global generalShortcuts
+    MsgBox generalShortcuts 
+}
+#HotIf
 
 
 
 
+global generalShortcuts .= "`nLWin + space => F24"
 ~LWin & Space::{
     SendInput("{" A_MenuMaskKey "}")
     Sleep(1)
@@ -222,7 +229,9 @@ $Browser_Search Up::{
 }
 
 
+global generalShortcuts .= "`nLWin + Browser_Search => LMM "
 
+~LWin & C:: 
 ~LWin & Browser_Search::{
 
     global LMM__Name
@@ -237,15 +246,16 @@ $Browser_Search Up::{
             WinActivate("A")
         }
     
-        else if WinExist(appNameExe){
+        else if WinExist(appNameExe) && !WinActive(appNameExe){
             WinActivate(appNameExe)
-            WinActivate("A")
+            ; WinActivate("A")
         }
     
         else{
         SoundBeep
         Run("explorer " appExePath)
         WinWait(LMM__Name)
+        WinActivate(LMM__Name)
         }
     
     }

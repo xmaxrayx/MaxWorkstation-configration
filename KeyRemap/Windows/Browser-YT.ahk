@@ -25,8 +25,8 @@ global output__Path := A_UserPath() . "\Music" ; -P
 
 
 
-$#F1::
-~LWin & F1::{ ;f1
+; $#F1::
+~LWin & 2::{ ;f1
 
     global Youtube_Raw__URL := unset
     try{
@@ -125,7 +125,7 @@ $#F1::
 
 
 
-~LWin & `::{ 
+~LWin & 1::{ 
 
     global Youtube_Raw__URL := unset
     try{
