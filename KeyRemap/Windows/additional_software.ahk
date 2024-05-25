@@ -19,7 +19,21 @@ global notepadPlusPlus_Exe__name := "ahk_class Notepad++"
 #HotIf GetKeyState("Ctrl", "P")
 ~LWin & N::{ 
     appLauncher_V1(notepadPlusPlus_Exe__name , notepadPlusPlus_Exe__path)
+    
 }
+~LWin & g::{
+
+
+
+    Run("github/github-desktop-manger.ahk")
+    ; MsgBox(  A_ScriptDir "..\KeyRemap\github\github-desktop-manger.ahk")
+}
+
+
+
+
+
+
 #HotIf
 
 

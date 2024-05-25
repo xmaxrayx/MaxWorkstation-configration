@@ -5,3 +5,5 @@
 
 
 Run("KeyRemap\Windows\Manger.ahk")
+
+Run("KeyRemap\Vscode\vscodeManger.ahk")

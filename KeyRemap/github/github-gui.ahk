@@ -85,7 +85,13 @@ loop github_gui_shortcutList.Length{
 
     MsgBox "[shortcut]`n"  github_gui_shortcutList__str "[hotstring]`n" github_gui_wordList__str 
 }
+
 #HotIf
+
+
+
+
+
 
 
 if !WinExist(githubExe){
