@@ -3,5 +3,5 @@
 
 # Why this? do you have a workstaion
 
-No I use it because they word looks so awesome 
+No I use it because the word looks so awesome it's about markating next project will be MaxWorkstation-configration-AI
 
